@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			body {
+			  text-align: justify;
+			  background-color: #2F525E;
+			}
+			h1 {
+			  text-align: center;
+			  color: #80DCFF;
+			  font-family: verdana;
+			  font-size: 300%;
+			}
+			div#primary {
+			  background-color: #C8E0CB;
+			  margin-right: 30%;
+              margin-left: 30%;
+			  border-style: solid;
+			  border-color: #A2C293;
+              padding-top: 2%;
+              padding-right: 2%;
+              padding-bottom: 2%;
+              padding-left: 2%;
+			}
+			div {
+			  background-color: white;
+			  border-style: solid;
+			  border-color: #A2C293;
+			  border-radius: 20px;
+			  margin-bottom: 3%;
+			  padding-left: 2%;
+			  padding-bottom: 2%;
+			}
+			code {
+			  text-align: left;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<h1>1. Creating a Flashlight instance.</h1>
+		<div id="primary">
+			<h2>This tutorial shows how to create a Flashlight instance. There are two ways:</h2>
+			<div>
+				<h3>1. Using The FlashlightAPI23</h3>
+				<p>The constructor requires two parameters: <a href="https://developer.android.com/reference/android/hardware/camera2/CameraManager">CameraManager</a> and cameraId(String).</p>
+				<p>Obtaining a CameraManager instance from the system service:</p>
+				<code>
+					//in activity class<br>
+					var cameraManager = getSystemService(Context.CAMERA_SERVICE) as CameraManager<br>
+				</code>
+				<p>Select the cameraId value from the getCameraIdList method. "0" is recommended:</p>
+				<code>
+					var cameraId = cameraManager.getCameraIdList[0]<br>
+				</code>
+				<p>Initialization:</p>
+				<code>
+					var flashlight = FlashlightAPI23(cameraManager, cameraId)<br>
+				</code>
+				<p>All code:</p>
+				<code>
+					//in activity class<br>
+					var cameraManager = getSystemService(Context.CAMERA_SERVICE) as CameraManager<br>
+					var cameraId = cameraManager.getCameraIdList[0]<br>
+					var flashlight = FlashlightAPI23(cameraManager, cameraId)<br>
+				</code>
+			</div>
+			<div>
+				<h3>2. Using The FlashlightAPI23Builder</h3>
+				<p>Builder initialization. The constructor's parameter is <a href="https://developer.android.com/reference/android/content/Context">Context</a>:</p>
+				<code>
+					//in activity class<br>
+					var flashlightBuilder = FlashlightAPI23Builder(this.applicationContext)<br>
+				</code>
+				<p>(Optional) Set the cameraId value using the setCameraId(String) method:</p>
+				<code>
+					flashlightBuilder.setCameraId("0")<br>
+				</code>
+				<p>If you don't call this method, the cameraId value will be "0".</p>
+				<p>Initialization:</p>
+				<code>
+					var flashlight = flashlightBuilder.getFlashlight()<br>
+				</code>
+				<p>All code:</p>
+				<code>
+					//in activity class<br>
+					var flashlightBuilder = FlashlightAPI23Builder(this.applicationContext)<br>
+					var flashlight = flashlightBuilder.getFlashlight()<br>
+				</code>
+			</div>
+		</div>
+	</body>
+</html>
