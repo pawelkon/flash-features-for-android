@@ -1,0 +1,3 @@
+rootProject.name='Flash Features'
+include ':test'
+include ':lib'
