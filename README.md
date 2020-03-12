@@ -1,4 +1,4 @@
-# flashlight-features-for-android
+# flash-features-for-android
 
 This library provides functions related to the camera flash.
 It's written in Kotlin for Android.
