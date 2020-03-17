@@ -37,6 +37,6 @@ dependencies {
 }
 
 dokka {
-    outputFormat = 'javadoc'
-    outputDirectory = "doc/kotlindoc/lib"
+    outputFormat = 'html'
+    outputDirectory = "doc/kotlindoc/"
 }

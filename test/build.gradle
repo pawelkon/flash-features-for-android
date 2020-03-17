@@ -24,6 +24,10 @@ android {
         }
     }
 
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+
 }
 
 dependencies {
@@ -39,6 +43,6 @@ dependencies {
 }
 
 dokka {
-    outputFormat = 'javadoc'
-    outputDirectory = "doc/kotlindoc/test"
+    outputFormat = 'html'
+    outputDirectory = "doc/kotlindoc/"
 }
