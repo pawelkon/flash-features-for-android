@@ -1,8 +1,0 @@
-$dokka.format:html
-$dokka.linkExtension:html
-
-com.pawelkon.flashfeatures
-com.pawelkon.flashfeatures.light
-com.pawelkon.flashfeatures.light.flash
-com.pawelkon.flashfeatures.light.sequencer
-com.pawelkon.flashfeatures.sequencer
