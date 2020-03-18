@@ -6,10 +6,17 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 import kotlin.math.absoluteValue
 
+/**
+ * Unit tests for SequenceMaker.
+ */
 class SequenceMakerUnitTest {
 
+    //test values
     private val sequenceTimes = arrayOf(1L, 200L, 0L, 9999999L, -3L)
 
+    /**
+     * Checks whether the sequence is empty after the object has been initialized.
+     */
     @Test
     fun emptySequence() {
         val sequenceMaker = object: SequenceMaker() {}
@@ -17,11 +24,17 @@ class SequenceMakerUnitTest {
         assertEquals(0, sequence.size)
     }
 
+    /**
+     * Checks whether the sequence is the same length as the test data.
+     */
     @Test
     fun nonEmptySequence() {
         assertEquals(sequenceTimes.size, testSequence().size)
     }
 
+    /**
+     * Checks whether all data of the sequence is the same as the test data.
+     */
     @Test
     fun correctSequence() {
         val sequence = testSequence()
@@ -34,6 +47,7 @@ class SequenceMakerUnitTest {
         }
     }
 
+    //generates and returns a test sequence
     private fun testSequence(): Array<SequenceStep> {
         val sequenceMaker = object: SequenceMaker() {}
         sequenceTimes.forEach { sequenceMaker.interval(it) }
