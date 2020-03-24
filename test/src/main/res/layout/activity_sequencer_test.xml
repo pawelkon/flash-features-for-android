@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".SequencerTest">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,17 +12,9 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/btn_flashapi23_test"
+            android:id="@+id/btn_sos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="START FLASHAPI23 TEST" />
-
-
-        <Button
-            android:id="@+id/btn_sequencer_test"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="START SEQUENCER TEST" />
+            android:text="SOS SEQUENCE TEST" />
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

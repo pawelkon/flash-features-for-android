@@ -34,5 +34,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, FlashAPI23Test::class.java)
             startActivity(intent)
         }
+
+        btn_sequencer_test.setOnClickListener {
+            val intent = Intent(this, SequencerTest::class.java)
+            startActivity(intent)
+        }
     }
 }
