@@ -24,9 +24,6 @@ SOFTWARE.
 
 package com.pawelkon.flashfeatures.sequencer
 
-import android.util.Log
-import kotlin.math.absoluteValue
-
 /**
  * An abstract maker for creating a sequence.
  *
@@ -47,7 +44,7 @@ abstract class SequenceMaker {
         newStepDefinition(Runnable {  }, millis)
 
         if(millis == 0L)
-            Log.w("illegal argument:", "this calling does nothing - parameter value cannot be zero")
+            throw IllegalArgumentException("the value must be greater than zero")
     }
 
     /**
@@ -75,8 +72,11 @@ abstract class SequenceMaker {
      * @param millis time(in milliseconds) after which the code will be executed.
      */
     protected fun newStepDefinition(runnable: Runnable, millis: Long) {
-        timeSum += millis.absoluteValue
+        timeSum += millis
         val step = SequenceStep(runnable, timeSum)
         steps.add(step)
+
+        if(millis < 0)
+            throw IllegalArgumentException("the value cannot be negative")
     }
 }
