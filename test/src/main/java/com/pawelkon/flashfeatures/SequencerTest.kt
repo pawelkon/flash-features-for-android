@@ -9,6 +9,9 @@ import com.pawelkon.flashfeatures.light.sequencer.LightSequenceMaker
 import com.pawelkon.flashfeatures.sequencer.SequenceExecutor
 import kotlinx.android.synthetic.main.activity_sequencer_test.*
 
+/**
+ * Manual test of Sequencer.
+ */
 class SequencerTest : AppCompatActivity() {
 
     private var flash: FlashAPI23? = null
