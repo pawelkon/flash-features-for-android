@@ -4,7 +4,7 @@ import com.pawelkon.flashfeatures.sequencer.SequenceMaker
 import com.pawelkon.flashfeatures.sequencer.SequenceStep
 import org.junit.Assert.assertEquals
 import org.junit.Test
-import kotlin.math.absoluteValue
+import java.lang.IllegalArgumentException
 
 /**
  * Unit tests for SequenceMaker.
@@ -41,7 +41,7 @@ class SequenceMakerUnitTest {
         var sum = 0L
         var iterator = 0
         sequence.forEach {
-            sum += sequenceTimes[iterator].absoluteValue
+            sum += sequenceTimes[iterator]
             assertEquals(sum, it.millis)
             iterator++
         }
@@ -50,7 +50,18 @@ class SequenceMakerUnitTest {
     //generates and returns a test sequence
     private fun testSequence(): Array<SequenceStep> {
         val sequenceMaker = object: SequenceMaker() {}
-        sequenceTimes.forEach { sequenceMaker.interval(it) }
+        sequenceTimes.forEach {
+            try {
+                sequenceMaker.interval(it)
+            } catch (e: IllegalArgumentException) {
+                if(e.message == "the value must be greater than zero" && it <= 0L)
+                    assert(true)
+                else if(e.message == "the value cannot be negative" && it < 0L)
+                    assert(true)
+                else
+                    assert(false)
+            }
+        }
         return sequenceMaker.getSequence()
     }
 }
