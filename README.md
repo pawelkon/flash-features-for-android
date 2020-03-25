@@ -5,7 +5,7 @@ It's written in Kotlin for Android.
 The library is covered by the MIT license.
 
 ## Features:
-1. Camera flash management(Minimal API - 23).
+- Camera flash management(Minimal API level 23).
 
 ## Directory structure:
 - **doc** - guides and automatically generated documentation.
