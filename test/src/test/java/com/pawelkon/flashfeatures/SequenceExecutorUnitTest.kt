@@ -40,4 +40,37 @@ class SequenceExecutorUnitTest {
         }
 
     }
+
+    /**
+     * This test checks the time accuracy of sequence execution with +10 milliseconds inaccuracy.
+     */
+    @Test
+    fun executingAccordingTime() {
+        var currentTimeMillis = 0L
+        val values: Array<Long> = arrayOf(0, 5, 10, 100, 123, 1000, 4728)
+        fun runnableContent(value: Long) {
+            if(value + 10  > System.currentTimeMillis() - currentTimeMillis)
+                assert(true)
+            else
+                assert(false)
+            currentTimeMillis = System.currentTimeMillis()
+        }
+        val steps = arrayOf(
+            SequenceStep(Runnable { runnableContent(values[0]) }, values[0]),
+            SequenceStep(Runnable { runnableContent(values[1]) }, values[1]),
+            SequenceStep(Runnable { runnableContent(values[2]) }, values[2]),
+            SequenceStep(Runnable { runnableContent(values[3]) }, values[3]),
+            SequenceStep(Runnable { runnableContent(values[4]) }, values[4]),
+            SequenceStep(Runnable { runnableContent(values[5]) }, values[5]),
+            SequenceStep(Runnable { runnableContent(values[6]) }, values[6])
+        )
+        val executor = SequenceExecutor(steps)
+        currentTimeMillis = System.currentTimeMillis()
+        executor.start()
+
+        var sumValues = 0L
+        values.forEach { sumValues += it }
+        Thread.sleep(sumValues)
+    }
+
 }
