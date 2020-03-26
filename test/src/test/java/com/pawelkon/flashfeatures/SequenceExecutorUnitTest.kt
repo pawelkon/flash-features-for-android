@@ -12,28 +12,23 @@ import java.util.*
  */
 class SequenceExecutorUnitTest {
 
+    //test values
+    private val values: Array<Long> = arrayOf(0, 5, 10, 100, 123, 1000, 4728)
+
     /**
      * The test checks if the executor performs all the steps given.
      */
     @Test
     fun executingTest() {
-        val values: Array<Long> = arrayOf(0, 5, 10, 100, 123, 1000, 4728)
+        val steps = mutableListOf<SequenceStep>()
         val isExecuted: Array<Boolean> = arrayOf(false, false, false, false, false, false, false)
-        val steps = arrayOf(
-            SequenceStep(Runnable { isExecuted[0] = true }, values[0]),
-            SequenceStep(Runnable { isExecuted[1] = true }, values[1]),
-            SequenceStep(Runnable { isExecuted[2] = true }, values[2]),
-            SequenceStep(Runnable { isExecuted[3] = true }, values[3]),
-            SequenceStep(Runnable { isExecuted[4] = true }, values[4]),
-            SequenceStep(Runnable { isExecuted[5] = true }, values[5]),
-            SequenceStep(Runnable { isExecuted[6] = true }, values[6])
-        )
-        val executor = SequenceExecutor(steps)
+        values.forEachIndexed { index, _ ->
+            steps.add(SequenceStep(Runnable { isExecuted[index] = true }, values[index]))
+        }
+        val executor = SequenceExecutor(steps.toTypedArray())
         executor.start()
 
-        var sumValues = 0L
-        values.forEach { sumValues += it }
-        Thread.sleep(sumValues)
+        waiting()
 
         isExecuted.forEach {
             assertEquals(true, it)
@@ -47,7 +42,6 @@ class SequenceExecutorUnitTest {
     @Test
     fun executingAccordingTime() {
         var currentTimeMillis = 0L
-        val values: Array<Long> = arrayOf(0, 5, 10, 100, 123, 1000, 4728)
         fun runnableContent(value: Long) {
             if(value + 10  > System.currentTimeMillis() - currentTimeMillis)
                 assert(true)
@@ -55,22 +49,20 @@ class SequenceExecutorUnitTest {
                 assert(false)
             currentTimeMillis = System.currentTimeMillis()
         }
-        val steps = arrayOf(
-            SequenceStep(Runnable { runnableContent(values[0]) }, values[0]),
-            SequenceStep(Runnable { runnableContent(values[1]) }, values[1]),
-            SequenceStep(Runnable { runnableContent(values[2]) }, values[2]),
-            SequenceStep(Runnable { runnableContent(values[3]) }, values[3]),
-            SequenceStep(Runnable { runnableContent(values[4]) }, values[4]),
-            SequenceStep(Runnable { runnableContent(values[5]) }, values[5]),
-            SequenceStep(Runnable { runnableContent(values[6]) }, values[6])
-        )
-        val executor = SequenceExecutor(steps)
+        val steps = mutableListOf<SequenceStep>()
+        values.forEachIndexed { index, _ ->
+            steps.add(SequenceStep(Runnable { runnableContent(values[index]) }, values[index]))
+        }
+        val executor = SequenceExecutor(steps.toTypedArray())
         currentTimeMillis = System.currentTimeMillis()
         executor.start()
 
+        waiting()
+    }
+
+    private fun waiting() {
         var sumValues = 0L
         values.forEach { sumValues += it }
         Thread.sleep(sumValues)
     }
-
 }
