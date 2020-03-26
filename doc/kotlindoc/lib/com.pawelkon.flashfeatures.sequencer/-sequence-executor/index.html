@@ -18,7 +18,7 @@
 <p><a href="-init-.html">&lt;init&gt;</a></p>
 </td>
 <td>
-<code><span class="identifier">SequenceExecutor</span><span class="symbol">(</span><span class="identifier" id="com.pawelkon.flashfeatures.sequencer.SequenceExecutor$<init>(kotlin.Array((com.pawelkon.flashfeatures.sequencer.SequenceStep)))/sequence">sequence</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html"><span class="identifier">Array</span></a><span class="symbol">&lt;</span><a href="../-sequence-step/index.html"><span class="identifier">SequenceStep</span></a><span class="symbol">&gt;</span><span class="symbol">)</span></code>
+<code><span class="identifier">SequenceExecutor</span><span class="symbol">(</span><span class="identifier" id="com.pawelkon.flashfeatures.sequencer.SequenceExecutor$<init>(kotlin.collections.List((com.pawelkon.flashfeatures.sequencer.SequenceStep)))/sequence">sequence</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../-sequence-step/index.html"><span class="identifier">SequenceStep</span></a><span class="symbol">&gt;</span><span class="symbol">)</span></code>
 <p>Creates a sequence executor with the passed sequence.</p>
 </td>
 </tr>
@@ -27,15 +27,6 @@
 <h3>Functions</h3>
 <table>
 <tbody>
-<tr>
-<td>
-<p><a href="cancel.html">cancel</a></p>
-</td>
-<td>
-<code><span class="keyword">fun </span><span class="identifier">cancel</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
-<p>Stops and cancels the sequence executing.</p>
-</td>
-</tr>
 <tr>
 <td>
 <p><a href="delay.html">delay</a></p>
@@ -61,6 +52,15 @@
 <td>
 <code><span class="keyword">fun </span><span class="identifier">start</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
 <p>Starts the sequence executing.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="stop.html">stop</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">stop</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Stops and cancels the sequence executing.</p>
 </td>
 </tr>
 </tbody>

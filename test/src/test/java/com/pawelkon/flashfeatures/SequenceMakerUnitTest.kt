@@ -48,7 +48,7 @@ class SequenceMakerUnitTest {
     }
 
     //generates and returns a test sequence
-    private fun testSequence(): Array<SequenceStep> {
+    private fun testSequence(): List<SequenceStep> {
         val sequenceMaker = object: SequenceMaker() {}
         sequenceTimes.forEach {
             try {

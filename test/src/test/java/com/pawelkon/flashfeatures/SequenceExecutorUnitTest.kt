@@ -25,7 +25,7 @@ class SequenceExecutorUnitTest {
         values.forEachIndexed { index, _ ->
             steps.add(SequenceStep(Runnable { isExecuted[index] = true }, values[index]))
         }
-        val executor = SequenceExecutor(steps.toTypedArray())
+        val executor = SequenceExecutor(steps)
         executor.start()
 
         waiting()
@@ -53,7 +53,7 @@ class SequenceExecutorUnitTest {
         values.forEachIndexed { index, _ ->
             steps.add(SequenceStep(Runnable { runnableContent(values[index]) }, values[index]))
         }
-        val executor = SequenceExecutor(steps.toTypedArray())
+        val executor = SequenceExecutor(steps)
         currentTimeMillis = System.currentTimeMillis()
         executor.start()
 

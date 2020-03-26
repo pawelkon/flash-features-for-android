@@ -32,7 +32,7 @@ import java.util.*
  * @constructor Creates a sequence executor with the passed sequence.
  * @param sequence an array with a sequence.
  */
-class SequenceExecutor(private val sequence: Array<SequenceStep>) {
+class SequenceExecutor(private val sequence: List<SequenceStep>) {
 
     private var timer: Timer? = null
 
@@ -44,7 +44,7 @@ class SequenceExecutor(private val sequence: Array<SequenceStep>) {
      * Starts the sequence executing.
      */
     fun start() {
-        cancel()
+        stop()
         setNewTimer()
         loadSteps()
     }
@@ -52,7 +52,7 @@ class SequenceExecutor(private val sequence: Array<SequenceStep>) {
     /**
      * Stops and cancels the sequence executing.
      */
-    fun cancel() {
+    fun stop() {
         timer?.cancel()
         timer?.purge()
         timer = null

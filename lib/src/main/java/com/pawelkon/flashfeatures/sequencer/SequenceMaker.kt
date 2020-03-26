@@ -52,8 +52,8 @@ abstract class SequenceMaker {
      *
      * @return the sequence array.
      */
-    fun getSequence(): Array<SequenceStep> {
-        return steps.toTypedArray()
+    fun getSequence(): List<SequenceStep> {
+        return steps
     }
 
     /**
