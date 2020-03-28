@@ -64,7 +64,7 @@ class LightSequenceMakerUnitTest {
      */
     @Test
     fun nonEmptySequence() {
-        assertEquals(countSteps(), testSequence().size)
+        assertEquals(calculateSteps(), testSequence().size)
     }
 
     /**
@@ -108,7 +108,7 @@ class LightSequenceMakerUnitTest {
     }
 
     //calculates the number of steps that should be
-    private fun countSteps(): Int {
+    private fun calculateSteps(): Int {
         var i = 0
         sequenceTimes.forEach {
             if(it > 0) {

@@ -53,7 +53,7 @@ class SequenceMakerUnitTest {
      */
     @Test
     fun nonEmptySequence() {
-        assertEquals(sequenceTimes.size, testSequence().size)
+        assertEquals(calculateSteps(), testSequence().size)
     }
 
     /**
@@ -63,11 +63,13 @@ class SequenceMakerUnitTest {
     fun correctSequence() {
         val sequence = testSequence()
         var sum = 0L
-        var iterator = 0
-        sequence.forEach {
-            sum += sequenceTimes[iterator]
-            assertEquals(sum, it.millis)
-            iterator++
+        var i = 0
+        sequenceTimes.forEach {
+            if (it > 0) {
+                sum += it
+                assertEquals(sum, sequence[i].millis)
+                i++
+            }
         }
     }
 
@@ -87,5 +89,16 @@ class SequenceMakerUnitTest {
             }
         }
         return sequenceMaker.getSequence()
+    }
+
+    //calculates the number of steps that should be
+    private fun calculateSteps(): Int {
+        var i = 0
+        sequenceTimes.forEach {
+            if(it > 0) {
+                i+=1
+            }
+        }
+        return i
     }
 }
