@@ -39,6 +39,7 @@ open class LightSequenceMaker(private val light: Light) : SequenceMaker() {
      * Turns on the light for a specified time and turns it off.
      *
      * @param millis the time(in milliseconds) the light will be on.
+     * @throws IllegalArgumentException if **millis** is equal or less than 0.
      */
     fun flash(millis: Long) {
         if(millis <= 0L)

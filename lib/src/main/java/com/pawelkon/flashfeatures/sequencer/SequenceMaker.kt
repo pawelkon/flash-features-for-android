@@ -39,6 +39,7 @@ abstract class SequenceMaker {
      * Adds a time interval between two steps.
      *
      * @param millis length(in milliseconds) of the time interval.
+     * @throws IllegalArgumentException if **millis** is equal or less than 0.
      */
     fun interval(millis: Long) {
         if(millis <= 0L)
@@ -70,6 +71,7 @@ abstract class SequenceMaker {
      *
      * @param runnable the code to be executed.
      * @param millis time(in milliseconds) after which the code will be executed.
+     * @throws IllegalArgumentException if **millis** is less than 0.
      */
     protected fun newStepDefinition(runnable: Runnable, millis: Long) {
         if(millis < 0)
