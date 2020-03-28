@@ -41,6 +41,9 @@ open class LightSequenceMaker(private val light: Light) : SequenceMaker() {
      * @param millis the time(in milliseconds) the light will be on.
      */
     fun flash(millis: Long) {
+        if(millis <= 0L)
+            throw IllegalArgumentException("the value must be greater than zero")
+
         newStepDefinition(Runnable { light.setMode(true) }, 0)
         newStepDefinition(Runnable { light.setMode(false) }, millis)
     }

@@ -41,10 +41,10 @@ abstract class SequenceMaker {
      * @param millis length(in milliseconds) of the time interval.
      */
     fun interval(millis: Long) {
-        newStepDefinition(Runnable {  }, millis)
-
-        if(millis == 0L)
+        if(millis <= 0L)
             throw IllegalArgumentException("the value must be greater than zero")
+
+        newStepDefinition(Runnable {  }, millis)
     }
 
     /**
@@ -72,11 +72,11 @@ abstract class SequenceMaker {
      * @param millis time(in milliseconds) after which the code will be executed.
      */
     protected fun newStepDefinition(runnable: Runnable, millis: Long) {
+        if(millis < 0)
+            throw IllegalArgumentException("the value cannot be negative")
+
         timeSum += millis
         val step = SequenceStep(runnable, timeSum)
         steps.add(step)
-
-        if(millis < 0)
-            throw IllegalArgumentException("the value cannot be negative")
     }
 }
