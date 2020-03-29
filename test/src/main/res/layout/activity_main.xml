@@ -16,6 +16,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="START FLASHAPI23 TEST" />
+
+
+        <Button
+            android:id="@+id/btn_sequencer_test"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="START SEQUENCER TEST" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
