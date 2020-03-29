@@ -51,7 +51,7 @@ abstract class SequenceMaker {
     /**
      * Returns the created sequence.
      *
-     * @return the sequence array.
+     * @return list of sequence steps.
      */
     fun getSequence(): List<SequenceStep> {
         return steps
