@@ -58,14 +58,6 @@ abstract class SequenceMaker {
     }
 
     /**
-     * Removes all steps from the sequence.
-     */
-    fun reset() {
-        timeSum = 0
-        steps.clear()
-    }
-
-    /**
      * Creates a new step definition for the maker.
      * This method extends the maker with a new step definition for a specific implementation.
      *
