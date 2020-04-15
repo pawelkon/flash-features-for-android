@@ -1,71 +1,74 @@
 <!DOCTYPE html>
 <html>
-	<head>
-        	<link rel="stylesheet" href="style/style.css">
-	</head>
+    <head>
+        <link rel="stylesheet" href="style/style.css">
+    </head>
 	
-	<body>
-		<h1>Creating a light sequence using FlashAPI23 and LightSequenceMaker.</h1>
-		<div id="primary">
-			<h2>This tutorial shows how to create a light sequence using <a href="../kotlindoc/lib/com.pawelkon.flashfeatures.light.flash/-flash-a-p-i23/index.html">FlashAPI23</a> and <a href="../kotlindoc/lib/com.pawelkon.flashfeatures.light.sequencer/-light-sequence-maker/index.html">LightSequenceMaker</a>:</h2>
+    <body>
+        <h1>Creating a light sequence using FlashAPI23 and LightSequenceMaker.</h1>
+        <div id="primary">
+            <h2>
+                This tutorial shows how to create a light sequence using <a href="../kotlindoc/lib/com.pawelkon.flashfeatures.light.flash/-flash-a-p-i23/index.html">FlashAPI23</a> 
+                and <a href="../kotlindoc/lib/com.pawelkon.flashfeatures.light.sequencer/-light-sequence-maker/index.html">LightSequenceMaker</a>:
+            </h2>
 			<div id="inner">
-                		<p>1. Creating a LightSequenceMaker instance:</p>
-                		<code>
-                    			val sequenceMaker = LightSequenceMaker(flash)
-                		</code>
-                		<p><b>flash</b> is an instance of FlashAPI23(see: <a href="Creating a FlashAPI23 instance.html">Creating a FlashAPI23 instance</a>).</p>
+                <p>1. Creating a LightSequenceMaker instance:</p>
+                <code>
+                    val sequenceMaker = LightSequenceMaker(flash)
+                </code>
+                <p><b>flash</b> is an instance of FlashAPI23(see: <a href="Creating a FlashAPI23 instance.html">Creating a FlashAPI23 instance</a>).</p>
 			</div>
 			<div id="inner">
-                		<p>2. Creating a light sequence:</p>
-                		<code>
-					sequenceMaker.flash(300)
-                		</code>
-                	<p>
-                    		The <b>flash</b> function turns the light on for the time specified in the parameter and turns it off.
-                    		<br>
-                    		The value <b>300</b> means that the light will be on for 300 milliseconds.
-                	</p>
-                	<code>
-				sequenceMaker.interval(100)
-                	</code>
-                	<p>
-                    		The <b>interval</b> function adds a time interval between two flashes.
-                    		<br>
-                    		The value <b>100</b> means the duration of the time interval in milliseconds.
-                		</p>
+                <p>2. Creating a light sequence:</p>
+                <code>
+                    sequenceMaker.flash(300)
+                </code>
+                <p>
+                    The <b>flash</b> function turns the light on for the time specified in the parameter and turns it off.
+                    <br>
+                    The value <b>300</b> means that the light will be on for 300 milliseconds.
+                </p>
+                <code>
+                    sequenceMaker.interval(100)
+                </code>
+                <p>
+                    The <b>interval</b> function adds a time interval between two flashes.
+                    <br>
+                    The value <b>100</b> means the duration of the time interval in milliseconds.
+                </p>
 			</div>
 			<div id="inner">
-                		<p>Example of an SOS light sequence</p>
-                		<code>
-                    			flash.setMode(false)<br>
-                    			<br>
-                    			sequenceMaker.flash(300)<br>
-                    			sequenceMaker.interval(100)<br>
-                    			sequenceMaker.flash(300)<br>
-                    			sequenceMaker.interval(100)<br>
-                    			sequenceMaker.flash(300)<br>
-                    			sequenceMaker.interval(100)<br>
-                    			<br>
-                    			sequenceMaker.flash(600)<br>
-                    			sequenceMaker.interval(100)<br>
-                    			sequenceMaker.flash(600)<br>
-                    			sequenceMaker.interval(100)<br>
-                    			sequenceMaker.flash(600)<br>
-                    			sequenceMaker.interval(100)<br>
-                    			<br>
-                    			sequenceMaker.flash(300)<br>
-                    			sequenceMaker.interval(100)<br>
-                    			sequenceMaker.flash(300)<br>
-                    			sequenceMaker.interval(100)<br>
-                    			sequenceMaker.flash(300)<br>
-                    			sequenceMaker.interval(100)<br>
-                		</code>
+                <p>Example of an SOS light sequence</p>
+                <code>
+                    flash.setMode(false)<br>
+                    <br>
+                    sequenceMaker.flash(300)<br>
+                    sequenceMaker.interval(100)<br>
+                    sequenceMaker.flash(300)<br>
+                    sequenceMaker.interval(100)<br>
+                    sequenceMaker.flash(300)<br>
+                    sequenceMaker.interval(100)<br>
+                    <br>
+                    sequenceMaker.flash(600)<br>
+                    sequenceMaker.interval(100)<br>
+                    sequenceMaker.flash(600)<br>
+                    sequenceMaker.interval(100)<br>
+                    sequenceMaker.flash(600)<br>
+                    sequenceMaker.interval(100)<br>
+                    <br>
+                    sequenceMaker.flash(300)<br>
+                    sequenceMaker.interval(100)<br>
+                    sequenceMaker.flash(300)<br>
+                    sequenceMaker.interval(100)<br>
+                    sequenceMaker.flash(300)<br>
+                    sequenceMaker.interval(100)<br>
+                </code>
 			</div>
 			<div id="inner">
-                		<p>3. Getting the created sequence from the maker:</p>
-                		<code>
-                    			val sequence = sequenceMaker.getSequence()
-                		</code>
+                <p>3. Getting the created sequence from the maker:</p>
+                <code>
+                    val sequence = sequenceMaker.getSequence()
+                </code>
 			</div>
 		</div>
 	</body>
